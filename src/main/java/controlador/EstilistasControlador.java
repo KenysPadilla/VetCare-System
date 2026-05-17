@@ -15,16 +15,16 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class PropietariosControlador implements Initializable {
+public class EstilistasControlador implements Initializable {
 
     @FXML private TextField txtBuscar;
-    @FXML private TableView<?> tablaPropietarios;
+    @FXML private TableView<?> tablaEstilistas;
     @FXML private TableColumn<?, ?> colCedula;
     @FXML private TableColumn<?, ?> colNombre;
     @FXML private TableColumn<?, ?> colApellido;
+    @FXML private TableColumn<?, ?> colEspecialidad;
     @FXML private TableColumn<?, ?> colTelefono;
     @FXML private TableColumn<?, ?> colCorreo;
-    @FXML private TableColumn<?, ?> colDireccion;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -37,12 +37,12 @@ public class PropietariosControlador implements Initializable {
 
     @FXML
     private void handleNuevo() {
-       try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/nuevoPropietario.fxml"));
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/nuevoEstilista.fxml"));
             Parent root = loader.load();
 
             Stage stage = new Stage();
-            stage.setTitle("Nuevo Propietario");
+            stage.setTitle("Nuevo Estilista");
             stage.setScene(new Scene(root));
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setResizable(false);
@@ -55,29 +55,20 @@ public class PropietariosControlador implements Initializable {
 
     @FXML
     private void handleEditar() {
-        if (tablaPropietarios.getSelectionModel().getSelectedItem() == null) {
-            mostrarAlerta("Seleccione un propietario para editar.");
+        if (tablaEstilistas.getSelectionModel().getSelectedItem() == null) {
+            mostrarAlerta("Seleccione un estilista para editar.");
             return;
         }
-        System.out.println("Editar propietario");
+        System.out.println("Editar estilista");
     }
 
     @FXML
     private void handleEliminar() {
-        if (tablaPropietarios.getSelectionModel().getSelectedItem() == null) {
-            mostrarAlerta("Seleccione un propietario para eliminar.");
+        if (tablaEstilistas.getSelectionModel().getSelectedItem() == null) {
+            mostrarAlerta("Seleccione un estilista para eliminar.");
             return;
         }
-        System.out.println("Eliminar propietario");
-    }
-
-    @FXML
-    private void handleVerMascotas() {
-        if (tablaPropietarios.getSelectionModel().getSelectedItem() == null) {
-            mostrarAlerta("Seleccione un propietario para ver sus mascotas.");
-            return;
-        }
-        System.out.println("Ver mascotas del propietario");
+        System.out.println("Eliminar estilista");
     }
 
     private void mostrarAlerta(String mensaje) {
