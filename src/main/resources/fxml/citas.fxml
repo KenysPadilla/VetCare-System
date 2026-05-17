@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane style="-fx-background-color: #F0F4F0;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="controlador.CitasControlador">
+
+    <VBox spacing="15" AnchorPane.topAnchor="10" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10">
+
+        <Label text="Gestión de Citas Médicas" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1B6B2F;" />
+
+        <HBox spacing="15" alignment="CENTER_LEFT">
+            <Label text="Fecha:" style="-fx-font-weight: bold; -fx-text-fill: #333333;" />
+            <DatePicker fx:id="dpFecha" prefWidth="160" />
+
+            <Label text="Veterinario:" style="-fx-font-weight: bold; -fx-text-fill: #333333;" />
+            <ComboBox fx:id="cbVeterinario" prefWidth="180" promptText="Seleccionar" />
+
+            <Label text="Estado:" style="-fx-font-weight: bold; -fx-text-fill: #333333;" />
+            <ComboBox fx:id="cbEstado" prefWidth="160" promptText="Todos" />
+
+            <Button fx:id="btnBuscar" onAction="#handleBuscar" text="Buscar" style="-fx-background-color: #1B6B2F; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand;" />
+        </HBox>
+
+        <TableView fx:id="tablaCitas" VBox.vgrow="ALWAYS" style="-fx-background-color: white;">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="50" />
+                <TableColumn fx:id="colFechaHora" text="Fecha/Hora" prefWidth="140" />
+                <TableColumn fx:id="colPaciente" text="Paciente" prefWidth="120" />
+                <TableColumn fx:id="colPropietario" text="Propietario" prefWidth="130" />
+                <TableColumn fx:id="colVeterinario" text="Veterinario" prefWidth="130" />
+                <TableColumn fx:id="colTipo" text="Tipo" prefWidth="120" />
+                <TableColumn fx:id="colMotivo" text="Motivo" prefWidth="150" />
+                <TableColumn fx:id="colEstado" text="Estado" prefWidth="110" />
+            </columns>
+        </TableView>
+
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Button fx:id="btnNueva" onAction="#handleNuevaCita" text="Nueva Cita" prefHeight="38" prefWidth="140" style="-fx-background-color: #1B6B2F; -fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand;" />
+            <Button fx:id="btnModificar" onAction="#handleModificar" text="Modificar" prefHeight="38" prefWidth="140" style="-fx-background-color: white; -fx-text-fill: #1B6B2F; -fx-font-size: 13px; -fx-border-color: #1B6B2F; -fx-border-radius: 6; -fx-background-radius: 6; -fx-cursor: hand;" />
+            <Button fx:id="btnCancelar" onAction="#handleCancelarCita" text="Cancelar Cita" prefHeight="38" prefWidth="140" style="-fx-background-color: white; -fx-text-fill: #D32F2F; -fx-font-size: 13px; -fx-border-color: #D32F2F; -fx-border-radius: 6; -fx-background-radius: 6; -fx-cursor: hand;" />
+            <Button fx:id="btnHistorial" onAction="#handleVerHistorial" text="Ver Historial" prefHeight="38" prefWidth="140" style="-fx-background-color: white; -fx-text-fill: #1B6B2F; -fx-font-size: 13px; -fx-border-color: #1B6B2F; -fx-border-radius: 6; -fx-background-radius: 6; -fx-cursor: hand;" />
+        </HBox>
+
+    </VBox>
+
+</AnchorPane>
