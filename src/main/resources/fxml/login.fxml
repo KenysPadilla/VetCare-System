@@ -36,7 +36,7 @@
         </VBox>
 
         <VBox alignment="CENTER" maxWidth="320" spacing="5">
-            <Hyperlink style="-fx-text-fill: #1B6B2F;                                -fx-font-size: 12px;" text="¿Olvidaste tu contraseña?" />
+            <Hyperlink fx:id="linkRecuperar" onAction="#handleRecuperar" style="-fx-text-fill: #1B6B2F; -fx-font-size: 12px;" text="¿Olvidaste tu contraseña?" />
         </VBox>
 
         <VBox maxWidth="320" spacing="15">

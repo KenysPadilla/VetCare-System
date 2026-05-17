@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -20,6 +21,7 @@ public class LoginControlador implements Initializable {
     @FXML private PasswordField txtPassword;
     @FXML private Label lblError;
     @FXML private Button btnLogin;
+    @FXML private Hyperlink linkRecuperar;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -44,6 +46,21 @@ public class LoginControlador implements Initializable {
             abrirVentanaPrincipal();
         } else {
             mostrarError("Usuario o contraseña incorrectos.");
+        }
+    }
+
+    @FXML
+    private void handleRecuperar() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/recuperarPassword.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) linkRecuperar.getScene().getWindow();
+            stage.setScene(new Scene(root));
+
+        } catch (Exception e) {
+            mostrarError("Error al cargar la ventana.");
+            e.printStackTrace();
         }
     }
 
